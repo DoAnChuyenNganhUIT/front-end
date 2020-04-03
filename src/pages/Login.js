@@ -16,12 +16,17 @@ export default class Login extends Component {
         };
       }
     handleClick() {
+        
         axios.post('http://52.148.92.137:3000/login', {
             email: this.state.email,
             password: this.state.password
         })
             .then(function (response) {
                 console.log(response);
+                if (response.data.message.token) {
+                    // alert('success', 'Logged in successfully!');
+                    window.location.href = "http://localhost:3000";    
+                  }
             })
             .catch(function (error) {
                 console.log(error);

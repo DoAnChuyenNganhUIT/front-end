@@ -23,6 +23,7 @@ export default class Signup extends Component {
         })
             .then(function (response) {
                 console.log(response);
+                window.location.href="http://localhost:3000/login"
             })
             .catch(function (error) {
                 console.log(error);
@@ -53,7 +54,7 @@ export default class Signup extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email">Email</label>
-                                <input onChange={this.handleEmailChange} type="text" name="email" placeholder="email" />
+                                <input onChange={this.handleEmailChange} type="email" name="email" placeholder="email" />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password">Password</label>
