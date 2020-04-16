@@ -13,6 +13,8 @@ import './App.css';
 // import './App.scss'
 import Products from './pages/Products';
 import SingleProduct from './pages/SingleProduct';
+import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 
 function App() {
   return (
@@ -25,8 +27,14 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
+        <Route exact path="/editprofile">
+          <EditProfile />
+        </Route>
         <Route exact path="/products">
           <Products />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
         </Route>
         <Route exact path="/products/:slug">
           <SingleProduct />
