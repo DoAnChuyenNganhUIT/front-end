@@ -9,24 +9,26 @@ export default class Login extends Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);        
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.state = {
-          email:'',
-          password:'',          
+            email: '',
+            password: '',
         };
-      }
+    }
     handleClick() {
-        
+
         axios.post('http://52.148.92.137:3000/login', {
             email: this.state.email,
             password: this.state.password
         })
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
                 if (response.data.message.token) {
+                    console.log(response);
+                    localStorage.setItem('token', response.data.message.token);
                     // alert('success', 'Logged in successfully!');
-                    window.location.href = "http://localhost:3000";    
-                  }
+                    window.location.href = "http://localhost:3000";
+                }
             })
             .catch(function (error) {
                 console.log(error);
